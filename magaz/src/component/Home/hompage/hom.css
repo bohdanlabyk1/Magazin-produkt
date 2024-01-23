@@ -1,0 +1,25 @@
+.container{
+    width: 500px;
+    height: 300px;
+    background-color: rgb(37, 37, 37);
+}
+.title{
+ font-size: 60px;
+ color: rgb(73, 73, 73);
+text-align: center;
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+}
+h1{
+font-size: 20px;
+}
+button{
+    color: #f8f8f8;
+    background-color: #a65ed6;
+    padding: 10px;
+}
+img{
+    width: 80%;
+}
