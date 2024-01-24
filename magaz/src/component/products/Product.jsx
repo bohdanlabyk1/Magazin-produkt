@@ -2,24 +2,28 @@ import React from 'react'
 import './product.css'
 import {Link} from "react-router-dom"
 
-const Product = ({title, list = [] }) => {
+const Product = ({ title, products = [], amount }) => {
+ const list = products.filter((_, i ) => i < amount)
   return (
     <div className='content'>
       {title && <h1>{title}</h1>}
-    <div className='grid'>
-  {list.map(({id, images, title, categori:{name:cat}, prise }) =>(
-    <Link t0={`/products ${id}`} key={id}>
+      <div className='grid'>
+  {list.map(({id, images, title, price }) =>(
+    <Link to={`/products${id}`} key={id}>
       <div className='image'>
         <img src={images} alt={title} />
+        <div>
         <div className='main'>
-          <h2>{cat}</h2>
-          <h1>{prise}</h1>
+          <h1>{title}</h1>
+          <h2>{price}</h2>
+        </div>
+        
         </div>
       </div>
     </Link>
   ))}
+   </div>
   </div>
-</div>
 );
 }
 

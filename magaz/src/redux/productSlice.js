@@ -1,12 +1,12 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
 import axios from 'axios'
-import { BACE_URL } from "../utils/constans"
+import {Prod } from "../utils/constans"
 
 export const getProducts = createAsyncThunk (
     'products/getProducts',
     async (_, thunkAPI) =>{
         try{
-         const res = await axios(`${BACE_URL}/products`);
+         const res = await axios(`${Prod}`);
          return res.data;
         } catch(err){
             console.log(err)
@@ -15,15 +15,13 @@ export const getProducts = createAsyncThunk (
     }
 );
 
-const productsSlis = createSlice({
+const productsSlice = createSlice({
     name: 'products',
     initialState: {
         list: [],
-        filtered: [],
-        related: [],
         isLoading: false
     },
-    extraReducers: (builder) =>{
+    extraReducers: (builder) => {
         builder.addCase(getProducts.pending, (state) =>{
             state.isLoading = true
         });
@@ -39,4 +37,4 @@ const productsSlis = createSlice({
 });
 
 
-export default productsSlis.reducer
+export default productsSlice.reducer

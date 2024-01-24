@@ -6,7 +6,7 @@ import {  NavLink } from 'react-router-dom'
 const Sidebar = () => {
   const {list} = useSelector(({categoris})=> categoris);
 
-  console.log('list', DOMRectList)
+  console.log('list', list)
   
   return (
     <div className='content'>

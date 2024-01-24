@@ -1,17 +1,18 @@
 import React from 'react'
-import Hompage from './hompage/Hompage'
+import {useSelector} from 'react-redux'
 import Product from '../products/Product'
-import { useSelector } from 'react-redux'
-
 
 
 const Home = () => {
-  const {list } = useSelector(({products})=> products )
+  const { products} = useSelector((state) => state)
   return (
-  <>
-   <Hompage/>
-   <Product products={list}/>
-  </>
+    <>
+    <div className="App">
+  
+      <Product products={products.list} amount={21} title="Trenging" />
+    
+    </div>
+    </>
   )
 }
 
